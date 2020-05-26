@@ -3,7 +3,7 @@
 const Hapi = require('@hapi/hapi')
 const Vision = require('@hapi/vision')
 const Inert = require('@hapi/inert')
-const Svelte = require('./plugin')
+const Svelte = require('hapi-svelte-views')
 const { join } = require('path')
 
 const init = async () => {
@@ -37,7 +37,7 @@ const init = async () => {
         method: 'GET',
         path: '/',
         handler: (request, h) => {
-            return h.view('Home');
+            return h.view('Home', { name: 'World' });
         }
     })
 
